@@ -1,0 +1,40 @@
+.screen{
+    width: 100%;
+    /* height: 880px; */
+
+}
+
+.container{background: #ffffff;padding-top: 20px;}
+.backimage{
+    width: 100%;
+    height: 100%;
+    background-image:url('/assets/images/bg.png');
+    background-size: 100% 100%;
+    background-position: top center;
+}
+.reports{
+    float:  left;
+    font-size: 24px;
+    color: #000000;
+    font-weight: bolder;
+    width: 100%;
+    display: block;
+    /* margin-top: 0%; */
+    margin-left: 5%;
+    margin-bottom: 1%; 
+}
+.charts-name{
+    font-size: 18px;
+    color: #000000;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.deletedMsg{
+    width: 100%;
+    display: inline-block;
+}
+.loginMessage {
+    text-align: center;
+    color: red;
+    width: 100%;
+}

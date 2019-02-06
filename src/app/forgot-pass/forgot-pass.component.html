@@ -1,0 +1,56 @@
+<div class="backimage">
+        <div class="container-fluid" id="loginContainer">
+            <div class="row" *ngIf="btnStatus">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <p class="loginMessage">{{message}}</p>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+        <div>
+            <!-- <img src="/assets/images/bg_effect.png" class="login_image"> -->
+            <div class="caption">
+                <div class="pms-heading">PMS</div>
+                <div class="pms-brief">Project Management System</div>
+                <hr class="rectangle" style="height: 10px;width:200px;background-color: #dff621;">
+            </div>
+            <div class="form">
+              <div *ngIf="sendOTP">
+                <div class="welcome-note">Welcome</div>
+                <div class="login-statement">Enter registered email id to continue</div>
+                <form (submit)="onForgotEmp(LoginEmp)" #LoginEmp="ngForm">
+                    <div class="Email">
+                    <input type="email" id="inputEmail" placeholder="User ID" email="true" name="empEmail" ngModel #empEmail="ngModel" required autofocus>
+                    </div>
+                    <a href="" class="lnkForgot">Back to Login</a>
+                    <button type="submit" class="btnSubmit1">Send OTP</button>
+                </form>
+            </div>
+            <div *ngIf="checkOTP">
+                <div class="welcome-note">Welcome</div>
+                <div class="login-statement">Enter OTP to reset password</div>
+                <form (submit)="onValidateOTP(LoginEmp)" #LoginEmp="ngForm">
+                    <div class="Email">
+                    <input type="password" id="inputPassword1" placeholder="OTP" name="empEmail" ngModel #empEmail="ngModel" required autofocus>
+                    </div>
+                    <a href="" class="lnkForgot">Back to Login</a>
+                    <button type="submit" class="btnSubmit">Validate OTP</button>
+                </form>
+                </div>
+                <div *ngIf="resetPassword">
+                    <div class="welcome-note">Welcome</div>
+                    <div class="login-statement">Reset  to continue</div>
+                    <form (submit)="onResetPassword(LoginEmp)" #LoginEmp="ngForm">
+                        <div class="Password">
+                            <input type="password" id="inputPassword1" placeholder="New Password" name="empPassword1" ngModel #empPassword1="ngModel" required>
+                        </div>
+                        <div class="Password">
+                        <input type="password" id="inputPassword2" placeholder="Confirm Password" name="empPassword2" ngModel #empPassword2="ngModel" required>
+                        </div>
+                        <a href="" class="lnkForgot">Back to Login</a>
+                        <button type="submit" class="btnSubmit">Reset Password</button>
+                    </form>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,52 @@
+<div class="mat-app-background basic-container">
+  <mat-toolbar color="white" class="example-toolbar">
+    <button mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class="pms-section">
+      <button class="btnFirst btns">Project</button>
+      <button class="btnMid btns">Employee</button>
+      <button class="btnMid2 btns">Timesheet</button>
+      <button class="btnLast btns">Finance</button>
+    </div>
+    <div class="empName">{{employeeName}}</div>
+
+    <div class="logout">
+      <img src="/assets/images/logout.png" (click)="logout()">
+    </div>
+  </mat-toolbar>
+  <div class="container" id="loginContainer">
+    <div class="row" *ngIf="this.message">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <!-- <p class="loginMessage">{{this.checkTimesheetMessage}}</p> -->
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+
+
+
+<!-- Sidenav Toggle Functionality -->
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #drawer [mode]="side" closed role="navigation">
+      <mat-nav-list>
+        <div *ngIf="sideNavLoad">
+        <a mat-list-item class="tab" routerLink='/home/myReports'>
+          <img src="/assets/images/my_reports.png" class="itemImg">My Reports</a>
+        <a mat-list-item class="tab" routerLink="/home/billing" *ngIf='!isFM'>
+          <img src="/assets/images/ic_billing.png" class="itemImg">Billing</a>
+          <a mat-list-item class="tab" routerLink="/home/projects" *ngIf='!isManager && isFM'>
+            <img src="/assets/images/ic_billing.png" class="itemImg">Projects</a>
+        <!-- <a mat-list-item class="tab" routerLink='/home/reviewTimesheet' *ngIf='IsManager'>
+          <img src="/assets/images/approve_rej.png" class="itemImg">Approve / Reject Timesheet</a>
+        <a mat-list-item class="tab" routerLink='/home/viewTeamTimesheet' *ngIf='IsManager'>
+          <img src="/assets/images/view_team.png" class="itemImg">View Team Timesheet</a> -->
+          </div>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

@@ -1,0 +1,72 @@
+<div class="backimage">
+<div class="screen">
+    <div class="container">
+    <label class="reports">My Reports</label>
+    <div class="chart">
+            <label class="charts-name">Revenue of the projects</label>
+            <div style="display: block;">
+                <mat-form-field>
+                    <mat-select placeholder="Project" name="selectProject1" [(ngModel)]="selectProject1">
+                        <mat-option *ngFor="let pro of projects" (click)="selectProject()" [value]="pro.project_id">
+                            {{pro.project_name}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+            </div>
+            <div class="deleted1Msg" *ngIf="chart1Msg">
+                    <p class="loginMessage">{{chart1Message}}</p>
+           </div>
+            <div *ngIf="chart1">
+              <canvas baseChart height="300" width="2000" [chartType]="'pie'" [datasets]="pieChartData3" [labels]="pieChartLabels3" [options]="pieChartOptions3"
+        [colors]="pieChartColor3">
+    </canvas>
+    
+    </div>
+        </div>
+        <div class="chart">
+            <label class="charts-name">Profitability of projects</label>
+            <div style="display: block;" *ngIf='projectdata'>
+                <mat-form-field>
+                    <mat-select placeholder="Project" name="selectProject12" [(ngModel)]="selectProject12">
+                        <mat-option *ngFor="let pro of projects" (click)="selectProject2()" [value]="pro.project_id">
+                            {{pro.project_name}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+            </div>
+            <div class="deleted1Msg" *ngIf="chart2Msg">
+                    <p class="loginMessage">{{chart2Message}}</p>
+           </div>
+            <div *ngIf="chart2">
+                <canvas baseChart [chartType]="'bar'" height="200" [datasets]="pieChartData2" [labels]="pieChartLabels2" [options]="pieChartOptions2"
+          [colors]="pieChartColor2">
+      </canvas>
+                </div> 
+
+       </div>
+
+       <div class="chart" *ngIf='isFM'>
+            <label class="charts-name">Revenue generated for the year</label>
+            <div style="display: block;">
+                    <mat-form-field>
+                            <mat-select placeholder="Select Year" name="selectYear" [(ngModel)]="selectYear">
+                            <mat-option value='2019' (click)="selectedRevenueData()">2019</mat-option>
+                            <mat-option value='2018' (click)="selectedRevenueData()">2018</mat-option>
+                            <mat-option value='2017' (click)="selectedRevenueData()">2017</mat-option>
+                            </mat-select>
+                         </mat-form-field>
+            </div>
+            <div class="deleted1Msg" *ngIf="chart3Msg">
+                    <p class="loginMessage">{{chart3Message}}</p>
+           </div>
+            <div *ngIf="chart3">
+                <canvas baseChart [chartType]="'bar'" height="200" [datasets]="pieChartData1" [labels]="pieChartLabels1" [options]="pieChartOptions1"
+          [colors]="pieChartColor1">
+      </canvas>
+                </div> 
+
+       </div>
+    </div>
+
+</div>
+</div>

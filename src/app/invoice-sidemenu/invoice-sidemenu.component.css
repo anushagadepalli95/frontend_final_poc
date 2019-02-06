@@ -1,0 +1,109 @@
+.pms-section{
+    margin-left: 26%;
+}
+.btnFirst{
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    border-left-style: solid;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-right-style: none;
+    background-color: white;
+    width: 130px;
+    height: 40px;
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+}
+.btns:hover, .btns:focus, .btns.active{
+background-image: linear-gradient(to right,#66ceb6,#118cfe);
+cursor: pointer;
+}
+.mat-list-item:hover,.mat-list-item:focus{color: #118cfe;overflow: hidden;
+    height: 150px;background-image: #202020;}
+    .tab.mat-list-item{overflow: hidden;height: 150px;}
+.btnMid{
+    
+    border-left-style: solid;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-right-style: none;
+    background-color: white;
+    width: 130px;
+    height: 40px;
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+}
+.btnMid2{
+    border-left-style: solid;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-right-style: none;
+    background-color: white;
+    width: 130px;
+    height: 40px;
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+}
+    
+
+.btnLast{
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    border-left-style: solid;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-right-style: none;
+    background-color: white;
+    width: 130px;
+    height: 40px;
+    font-size: 15px;
+    color: black;
+    font-weight: bold;  
+    background-image: linear-gradient(to right,#66ceb6,#118cfe);
+}
+.empName{
+    margin-left: 20%;
+    margin-right: 5%;
+    font-size: 13px;
+    color: black;
+}
+.logout{
+    margin-left: -12%;
+    /* margin-right: 2%; */
+    /* float: right; */
+}
+mat-sidenav {
+    background-color:rgb(2, 2, 43);
+}
+.itemImg{
+    height: 50px;
+    width: 50px;
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.itemText{
+    height:50px;
+    width: 150px;
+    text-align: center;
+    display: block;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+mat-sidenav-content{
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+.tab{
+    height: 250px;
+    width: 250px;
+    color: #ffffff;
+    display:block;
+}

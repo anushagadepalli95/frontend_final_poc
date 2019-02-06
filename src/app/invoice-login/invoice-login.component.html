@@ -1,0 +1,49 @@
+<div class="backimage">
+        <div class="container-fluid" id="loginContainer">
+            <div class="row" *ngIf="this.btnStatus">
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    
+                </div>
+                <div class="col-md-6">
+                      <p class="loginMessage">{{this.message}}</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <!-- <img src="/assets/images/bg_effect.png" class="login_image"> -->
+            <div class="caption">
+                <div class="pms-heading">PMS</div>
+                <div class="pms-brief">Project Management System</div>
+                <hr class="rectangle" style="height: 10px;width:200px;background-color: #dff621;">
+            </div>
+            <div class="form">
+                <img src="/assets/images/bg_effect.png" class="login-img">
+                <div class="col-sm-12 welcome-note">Welcome Back</div>
+                <div class="col-sm-12 login-statement">Please login to continue</div>
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="form-group">
+                    <div class="Email">
+                    <input type="text" id="inputEmail" placeholder="User ID" formControlName="email" required autofocus>
+                    <!-- <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                          <div *ngIf="f.email.errors.required">Email is required</div>
+                          <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div> -->
+                    </div>
+                  </div>
+                  <!-- <div class="form-group">
+                          <label>Email</label>
+                          <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                              <div *ngIf="f.email.errors.required">Email is required</div>
+                              <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                          </div>
+                      </div> -->
+                    <div class="Password">
+                    <input type="password" id="inputPassword" placeholder="Password" formControlName="pwd" passwordToggle required>
+                    </div>
+                    <div (click)="forgotPass()" class="lnkForgot">Forgot Password ?</div>
+                    <button type="submit" class="btnSubmit">Sign In</button>
+                </form>
+            </div>
+        </div>

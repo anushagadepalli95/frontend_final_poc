@@ -1,0 +1,106 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body, html {
+    height: 100%;
+    margin: 0;
+    font: 400 15px/1.8 "Lato", sans-serif;
+    color: #777;
+  } 
+  .mat-list-base{padding-top: 0 !important;position: relative;top:64px;}
+  .mat-sidenav{width: 17%}
+  .mat-toolbar{width:100%;display:block;
+    /* background-image: linear-gradient(to right,#66ceb6,#118cfe);position: fixed;top: 0;z-index:999; */
+    
+} 
+
+.mat-icon-button{display: block;}
+
+.btns:hover, .btns:focus, .btns.active{
+background-image: linear-gradient(to right,#66ceb6,#118cfe);
+cursor: pointer;
+}
+.mat-list-item:hover,.mat-list-item:focus{color: #118cfe;overflow: hidden;
+    height: 150px;background-image: #202020;}
+    .tab.mat-list-item{overflow: hidden;height: 150px;}
+/* .btnMid{
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-right-style: none;
+    background-color: white;
+    width: 130px;
+    height: 40px;
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
+} */
+
+.row1{
+    float: left;
+    width: 100%;
+    color: #000;
+    text-align: right;
+    font-size: 14px;
+    height: 14px;
+    font-weight: 600;
+    margin: 10px 0;
+
+}
+.row2{
+    float: right;
+    width: 100%;
+    color: #ffffff;
+    text-align: left;
+    font-size: 12px;
+    height: 14px;
+    margin: 10px 0;
+    font-weight: 600;
+}
+.personaldetails{
+    background-color: dodgerblue;
+    width: 100%;
+    padding: 10px;
+    color: #333;
+}
+mat-sidenav {
+    background-color:rgb(2, 2, 43);
+}
+.itemImg{
+    height: 50px;
+    width: 50px;
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.itemText{
+    height:50px;
+    width: 150px;
+    text-align: center;
+    display: block;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+mat-sidenav-content{
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+.tab{
+    height: 250px;
+    width: 250px;
+    color: #ffffff;
+    display:block;
+} 
+.details-project{
+    border: 2px #f2f2f2;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 880px;
+    margin-top: 3%;
+    margin-bottom: 5%;
+}

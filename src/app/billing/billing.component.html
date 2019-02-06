@@ -1,0 +1,113 @@
+<div class="screen">
+        <div class="container">
+        <div class="background">
+           <div class="details-project">
+              <div class="row first-section">
+                 <p class="head">Details</p>
+              </div>
+              <div class="personaldetails">
+                 <div class="row second-section" *ngFor="let detail of employeeDetails">
+                    <div class="col-md-3">
+                       <label class="row1">Employee Name : </label>
+                       <br>
+                       <label class="row1">Employee Id : </label>
+                       <br>
+                       <label class="row1">Employee Grade : </label>
+                       <br>
+                       <label class="row1">Employee Designation : </label>
+                       <br>
+                       <label class="row1">Location : </label>
+                       <br>
+                    </div>
+                    <div class="col-md-3">
+                       <label class="row2">{{detail.empfirstname}}</label>
+                       <br>
+                       <label class="row2">{{detail.empId}}</label>
+                       <br>
+                       <label class="row2">{{detail.empGrade}}</label>
+                       <br>
+                       <label class="row2">{{detail.empDesignation}}</label>
+                       <br>
+                       <label class="row2">{{detail.empLocation}}</label>
+                       <br>
+                    </div>
+                    <div class="col-md-3">
+                       <label class="row1">Employee Email : </label>
+                       <br>
+                       <label class="row1">Employee Contact : </label>
+                       <br>
+                       <label class="row1">Reporting Manager Id : </label>
+                       <br>
+                       <label class="row1">Employee Department : </label>
+                       <br>
+                       <label class="row1">Trianz Experience : </label>
+                       <br>
+                    </div>
+                    <div class="col-md-3">
+                       <label class="row2">{{detail.empEmail}}</label>
+                       <br>
+                       <label class="row2">{{detail.empContact}}</label>
+                       <br>
+                       <label class="row2">{{detail.empRM}}</label>
+                       <br>
+                       <label class="row2">{{detail.empDepartment}}</label>
+                       <br>
+                       <label class="row2">{{detail.empTrianzExp}}</label>
+                       <br>
+                    </div>
+                 </div>
+              </div>
+              <br>
+              <!---end of personalDetails   -->
+         
+              <h2>Projects</h2>
+              <p>View Projects of the Company</p>
+              <div class="row">
+              <div class="selective col-sm-6">
+                      
+                        <mat-form-field>
+                           <mat-select placeholder="Select Year" name="selectYear" [(ngModel)]="selectYear">
+                           <mat-option value='2019' (click)="selectedProjectData()">2019</mat-option>
+                           <mat-option value='2018' (click)="selectedProjectData()">2018</mat-option>
+                           <mat-option value='2017' (click)="selectedProjectData()">2017</mat-option>
+                           </mat-select>
+                        </mat-form-field>
+                     </div>
+                     <div class="col-sm-6">
+                       <label> Search :</label>
+                                <input type="text" placeholder="Search by project name"[(ngModel)]="queryString">
+                     </div>
+                     <div *ngIf="message">
+                                <p class="loginMessage" >{{messageText}}</p>
+                        </div> 
+                </div>
+                        
+              <table class="tblTimesheet table-zibra table" *ngIf="projects">            
+                 <thead>
+                        <tr>
+                        <th class="tblRow">Project Id</th>
+                       <th class="tblRow">Project Name</th>
+                       <th class="tblRow">Start Date</th>
+                       <th class="tblRow">Completion Date</th>
+                       <th class="tblRow">Client Name</th>
+                       <th class="tblRow" colspan="2">Action</th>
+                    </tr>
+                 </thead>
+                 <tbody>
+                
+                    <tr *ngFor="let pro of projects | search : queryString :'project_name'">
+                       <td class="tblRow">{{pro.project_id}}</td>
+                       <td class="tblRow">{{pro.project_name}}</td>
+                       <td class="tblRow">{{pro.start_date.split("T")[0]}}</td>
+                       <td class="tblRow">{{pro.completion_date.split("T")[0]}}</td>
+                       <td class="tblRow">{{pro.client_name}}</td>
+                       <td class="tblRow">
+                        <img src="/assets/images/ic_view_milestone.png" (click)="Milestone(pro.project_id)"></td>
+                    </tr>
+                 </tbody>
+              </table>
+           </div>
+           <!---end of container  -->
+        </div>
+
+     

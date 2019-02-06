@@ -1,0 +1,260 @@
+
+
+<div class="screen">
+    <div class="container">
+       <div class="background">
+          <div class="details-milestone">
+             <div class="row first-section">
+                <p class="head">Project Details</p>
+             </div>
+             <div class="personaldetails">
+                <div class="row second-section" *ngFor="let detail of commondetails">
+                   <div class="col-md-3">
+                      <label class="row1">Project Manager : </label>
+                      <br>
+                      <label class="row1">Project Id : </label>
+                      <br>
+                      <label class="row1">Project Name : </label>
+                      <br>
+                      <label class="row1">Project Budget : </label>
+                   </div>
+                   <div class="col-md-3">
+                      <label class="row2">{{detail.empfirstname}}</label>
+                      <br>
+                      <label class="row2">{{detail.project_id}}</label>
+                      <br>
+                      <label class="row2">{{detail.project_name}}</label>
+                      <br>
+                      <label class="row2">{{detail.sow_value}}</label>
+                   </div>
+                   <div class="col-md-3">
+                      <label class="row1">Start Date : </label>
+                      <br>
+                      <label class="row1">End Date: </label>
+                      <br>
+                      <label class="row1">Client Name: </label>
+                      <br>
+                      <label class="row1">Client Contact Name: </label>
+                   </div>
+                   <div class="col-md-3">
+                      <label class="row2">{{detail.start_date.split("T")[0]}}</label>
+                      <br>
+                      <label class="row2">{{detail.completion_date.split("T")[0]}}</label>
+                      <br>
+                      <label class="row2">{{detail.client_name}}</label>
+                      <br>
+                      <label class="row2">{{detail.ClientContactName}}</label>
+                   </div>
+                </div>
+             </div>
+             <!-- end of details-milestone -->
+             <br>
+             <div *ngIf="invoicetrue">
+                <h2>Milestone Details</h2>
+                <!-- <div *ngIf="message">
+                   <p class="loginMessage" >{{messageText}}</p>
+                </div> -->
+                <table class="tblTimesheet" *ngIf="milestones">
+                   <thead>
+                      <tr>
+                         <th class="tblRow">Milestone name</th>
+                         <th class="tblRow">Start Date</th>
+                         <th class="tblRow">SOW VALUE</th>
+                         <th class="tblRow" colspan="2">Action</th>
+                      </tr>
+                   </thead>
+                   <tbody>
+                      <tr *ngFor="let pro of milestones">
+                         <td class="tblRow">{{pro.milestone_id}}</td>
+                         <td class="tblRow">{{pro.milestone_date.split("T")[0]}}</td>
+                         <td class="tblRow">{{pro.sow_value}}</td>
+                         <td class="tblRow" *ngIf="pro.generated">
+                            <img src="/assets/images/ic_view_milestone.png" (click)="openLg(content);getInvoice1(pro.project_id,pro.milestone_id,pro.milestone_date.split('T')[0])">
+                         </td>
+                         <td class="tblRow" *ngIf="!pro.generated">
+                            <img class="add" src="/assets/images/add_invoice.jpeg" (click)="openLg(content);getInvoice1(pro.project_id,pro.milestone_id,pro.milestone_date.split('T')[0])">
+                         </td>
+                      </tr>
+                   </tbody>
+                </table>
+             </div>
+          </div>
+       </div>
+    </div>
+  </div>
+    <!-- <ng-template #content let-modal>
+       <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Invoice Template</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+          </button>
+       </div>
+       <div class="modal-body">
+          <div id="contentToConvert">
+             <form>
+                <div class="container">
+                   <div class="row">
+                      <div class="col-sm-8">
+                         <img src="/assets/images/download.png" class="logo">
+                      </div>
+                      <div class="col-sm-4">
+                         Business Name
+                      </div>
+                   </div>
+                   <hr>
+                   <div class="row">
+                      <div class="col-md-8">
+                         <h5>Bill to:</h5>
+                         <p>{{clientcontactname}}</p>
+                         <p>{{clientcontactEmail}}</p>
+                         <p>{{clientcontactaddress}}</p>
+                      </div>
+                      <div class="col-md-4">
+                         Invoice:{{invoice_id}}
+                         <p>Date:{{invoice_date}}</p>
+                      </div>
+                   </div>
+                   <hr>
+                   <div class="row">
+                      <div class="col-sm-3">
+                         Description
+                      </div>
+                      <div class="col-sm-3">
+                         Total hours
+                      </div>
+                      <div class="col-sm-3">
+                         Unit Price
+                      </div>
+                      <div class="col-sm-3">
+                         Amount
+                      </div>
+                   </div>
+                   <hr>
+                   <div class="row">
+                      <div class="col-sm-3">
+                         Design
+                      </div>
+                      <div class="col-sm-3">
+                         <p>{{hours}}</p>
+                      </div>
+                      <div class="col-sm-3">
+                         <p> {{bill_rate}}
+                         <p>
+                      </div>
+                      <div class="col-sm-3">
+                         <p>{{sow_value}}</p>
+                      </div>
+                   </div>
+                   <hr>
+              
+                   <hr>
+                </div>
+             </form>
+          </div>
+       </div>
+       <div class="modal-footer">
+          <div class="row">
+             <div class="col-sm-3" *ngIf="!generated">
+                <button type="button" class="btn btn-outline-dark" value="Save" (click)="insertinvoicedetails();modal.close('Save click')">Save</button>
+             </div>
+             <div class="col-sm-3" *ngIf="!mail_generated">
+                <button type="button" class="btn btn-outline-dark" (click)="mailsend();modal.close('Save click')">Send Email</button>
+             </div>
+             <div class="col-sm-3">
+                <button type="button" class="btn btn-outline-dark" (click)="downloadPDF();modal.close('Save click')">Download</button>
+             </div>
+          </div>
+       </div>
+    </ng-template> -->
+    <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Invoice Template</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="contentToConvert">
+          <form>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-8">
+                 Company Logo
+                </div>
+                <div class="col-sm-4">
+              Business Name
+                </div>
+              </div>
+              <hr>
+                <div class="row">
+                  <div class="col-md-8">
+                    <h5>Bill to:</h5>
+                    <p>{{clientcontactname}}</p>
+                    <p>{{clientcontactEmail}}</p>
+                    <p>{{clientcontactaddress}}</p>
+                  </div>
+                  <div class="col-md-4">
+                    Invoice:{{invoice_id}}
+                    <p>Date:{{invoice_date}}</p>
+                  </div>
+                </div>
+      
+                <hr>
+                <div class="row heading">
+                  <div class="col-sm-3">
+                    Description
+                  </div>
+                  <div class="col-sm-3">
+                    Total hours
+                  </div>
+                  <div class="col-sm-3">
+                    Unit Price
+                  </div>
+                  <div class="col-sm-3">
+                    Amount
+                  </div>
+                </div>
+                <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  Design
+                </div>
+                <div class="col-sm-3">
+                 <p>{{hours}}</p>
+                </div>
+                <div class="col-sm-3">
+                   <p> {{bill_rate}}<p>
+                </div>
+                <div class="col-sm-3">
+                 <p>{{sow_value}}</p>
+                </div>
+             
+              </div>
+          <!--  <hr>
+                <div class="row">
+                    <div class="form-group">                 
+                     <textarea class="form-control" id="exampleFormControlTextarea3" placeholder="Enter comments" rows="2"></textarea>
+                      </div>
+                </div>
+                <hr>   -->    
+            </div>
+            </form>
+        </div>
+      </div>
+        <div class="modal-footer">
+            <div class="row buttons" >
+                <div class="col-sm-5"></div>
+              <div class="col-sm-2 text-center" *ngIf="!generated">
+                  <button type="button" class="btn btn-lrg btn-outline-dark" value="Save" (click)="insertinvoicedetails()">Save</button>
+              
+                </div>
+              <div class="col-sm-3 text-center" *ngIf="!mail_generated">
+                  <button type="button" class="btn btn-outline-dark" (click)="mailsend()">Send Email</button>
+              </div>
+             
+              <div class="col-sm-2 text-center">
+                  <button type="button" class="btn btn-lrg btn-outline-dark" (click)="downloadPDF()">Download</button>
+              </div>
+            </div>
+        </div>
+      </ng-template>
